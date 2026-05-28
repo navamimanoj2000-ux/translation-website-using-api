@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaFlow Translator — AI-Powered Language Translation</title>
+  <meta name="description" content="Translate text instantly between 12+ languages with LinguaFlow — a modern AI-powered translator with voice, history, and dark mode." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="C:\Users\navam\OneDrive\Desktop\translation\app.css"/>
+</head>
+<body>
+  <!-- Animated background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="LinguaFlow home">
+        <span class="logo-icon"><i class="fa-solid fa-language"></i></span>
+        <span class="logo-text">LinguaFlow<span class="logo-accent">.</span></span>
+      </a>
+      <nav class="header-actions">
+        <button id="historyToggle" class="icon-btn" aria-label="Toggle history" title="History">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </button>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="hero-title">Translate anything,<br/><span class="gradient-text">instantly.</span></h1>
+      <p class="hero-sub">Powered by AI. Built for humans. 12+ languages, voice playback, and history — all in one place.</p>
+    </section>
+
+    <!-- Main translator card -->
+    <section class="glass-card translator-card" aria-label="Translator">
+      <!-- Language controls -->
+      <div class="lang-controls">
+        <div class="lang-group">
+          <label for="sourceLang">From</label>
+          <select id="sourceLang" class="lang-select"></select>
+        </div>
+
+        <button id="swapBtn" class="swap-btn" aria-label="Swap languages" title="Swap languages">
+          <i class="fa-solid fa-right-left"></i>
+        </button>
+
+        <div class="lang-group">
+          <label for="targetLang">To</label>
+          <select id="targetLang" class="lang-select"></select>
+        </div>
+      </div>
+
+      <!-- Input / Output grid -->
+      <div class="io-grid">
+        <!-- Input -->
+        <div class="io-pane">
+          <textarea id="inputText" placeholder="Type or paste text here..." maxlength="5000" rows="8"></textarea>
+          <div class="pane-footer">
+            <div class="char-counter"><span id="charCount">0</span> / 5000</div>
+            <button id="clearBtn" class="ghost-btn" title="Clear">
+              <i class="fa-solid fa-eraser"></i> Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="io-pane output-pane">
+          <div id="outputText" class="output-text" aria-live="polite">
+            <span class="placeholder">Translation will appear here…</span>
+          </div>
+          <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+          <div class="pane-footer">
+            <div class="output-meta" id="outputMeta"></div>
+            <div class="output-actions">
+              <button id="speakBtn" class="ghost-btn" title="Listen" disabled>
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+              <button id="copyBtn" class="ghost-btn" title="Copy" disabled>
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Translate button -->
+      <button id="translateBtn" class="translate-btn">
+        <span class="btn-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Translate</span>
+        <span class="btn-shortcut">Ctrl + Enter</span>
+      </button>
+    </section>
+
+    <!-- History -->
+    <section id="historyPanel" class="glass-card history-panel hidden" aria-label="History">
+      <div class="history-header">
+        <h2><i class="fa-solid fa-clock-rotate-left"></i> Recent translations</h2>
+        <button id="clearHistoryBtn" class="ghost-btn"><i class="fa-solid fa-trash"></i> Clear all</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+      <p id="historyEmpty" class="history-empty">No translations yet. Translate something to see it here.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> LinguaFlow Translator · Built with LibreTranslate</p>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="C:\Users\navam\OneDrive\Desktop\translation\app.js"></script>
+</body>
+</html>
